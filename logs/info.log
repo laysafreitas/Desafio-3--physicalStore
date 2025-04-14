@@ -1,0 +1,69 @@
+[2025-03-05 15:36:57] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-05 15:36:58] INFO: DB conectado com sucesso
+[2025-03-05 15:38:07] INFO: Lojas encontradas
+[2025-03-05 15:43:03] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-05 15:43:04] INFO: DB conectado com sucesso
+[2025-03-05 15:43:25] INFO: Lojas encontradas
+[2025-03-05 15:47:25] INFO: Lojas encontradas
+[2025-03-05 17:16:20] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-05 17:16:21] INFO: DB conectado com sucesso
+[2025-03-05 17:16:50] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-05 17:16:51] INFO: DB conectado com sucesso
+[2025-03-05 17:17:50] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-05 17:17:50] INFO: DB conectado com sucesso
+[2025-03-06 23:26:13] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-06 23:26:14] INFO: DB conectado com sucesso
+[2025-03-06 23:26:23] INFO: Nenhuma loja encontrada no raio de 100 km
+[2025-03-06 23:33:07] ERROR: CEP não encontrado
+
+[2025-03-09 21:20:51] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-09 21:20:52] INFO: DB conectado com sucesso
+[2025-03-09 21:38:21] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-09 21:38:22] INFO: DB conectado com sucesso
+[2025-03-09 21:38:57] INFO: Lojas encontradas
+[2025-03-09 22:24:34] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-09 22:24:35] INFO: DB conectado com sucesso
+[2025-03-09 22:27:24] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-09 22:27:25] INFO: DB conectado com sucesso
+
+[2025-03-07 14:51:48] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-07 14:51:49] INFO: DB conectado com sucesso
+[2025-03-07 14:59:59] INFO: Loja inserida com sucesso
+[2025-03-07 15:02:32] INFO: Loja inserida com sucesso
+[2025-03-07 15:03:45] INFO: Loja inserida com sucesso
+[2025-03-07 15:13:06] INFO: Loja inserida com sucesso
+[2025-03-07 15:13:51] ERROR: Cep não encontrado na api viacep
+[2025-03-07 15:13:51] ERROR: CEP não encontrado
+[2025-03-07 15:13:59] ERROR: Cep não encontrado na api viacep
+[2025-03-07 15:13:59] ERROR: CEP não encontrado
+[2025-03-07 15:14:20] INFO: Lojas encontradas
+[2025-03-07 15:14:44] INFO: Lojas encontradas
+[2025-03-07 15:15:35] INFO: Lojas encontradas
+[2025-03-07 15:15:48] INFO: Lojas encontradas
+[2025-03-07 15:16:29] INFO: Lojas encontradas
+[2025-03-10 11:31:00] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-10 11:31:01] INFO: DB conectado com sucesso
+[2025-03-10 11:39:34] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-10 11:39:35] INFO: DB conectado com sucesso
+[2025-03-10 11:40:19] INFO: Lojas encontradas
+[2025-03-10 12:24:17] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-10 12:24:18] INFO: DB conectado com sucesso
+[2025-03-10 14:41:52] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-10 14:41:55] INFO: DB conectado com sucesso
+[2025-03-10 14:42:00] INFO: Lojas encontradas
+[2025-03-10 14:42:42] INFO: Nenhuma loja encontrada no raio de 100 km
+[2025-03-10 14:44:44] INFO: Loja inserida com sucesso
+[2025-03-10 14:48:13] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-10 14:48:14] INFO: DB conectado com sucesso
+[2025-03-10 14:48:19] ERROR: Não foi possível encontrar as coordenadas do CEP.
+[2025-03-10 14:48:19] ERROR: CEP não encontrado
+[2025-03-10 15:28:13] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-10 15:28:14] INFO: DB conectado com sucesso
+[2025-03-10 15:28:27] INFO: Loja inserida com sucesso
+[2025-03-10 15:28:56] ERROR: Não foi possível encontrar as coordenadas do CEP.
+[2025-03-10 15:28:56] ERROR: CEP não encontrado
+[2025-03-10 15:29:08] INFO: Lojas encontradas
+[2025-03-10 15:29:40] INFO: Nenhuma loja encontrada no raio de 100 km
+[2025-03-10 15:30:40] INFO: Servidor está rodando em http://localhost:27017
+[2025-03-10 15:30:40] INFO: DB conectado com sucesso
+[2025-03-10 15:30:47] INFO: Lojas encontradas
