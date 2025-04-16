@@ -7,6 +7,9 @@ import  {LoggerModule}  from './modules/loggerModule';
 import { LocationModule } from './modules/LocationModule';
 import { LojaController } from './controller/lojasController';
 import { OsrmModule } from './modules/OsrmModule';
+import { MelhorEnvioModule } from './modules/MelhorEnvioModule';
+
+
 
 dotenv.config();
 
@@ -28,6 +31,7 @@ const databaseUrl: string = process.env.DATABASE;
         }),
         LojasModule, 
         LocationModule,
+        MelhorEnvioModule,
     ],
     controllers: [LojaController]
 })

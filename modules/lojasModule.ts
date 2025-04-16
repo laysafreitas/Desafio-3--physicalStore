@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module} from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { LojaController } from '../controller/lojasController';
 import { LojaService } from '../Service/lojasService';
@@ -7,6 +7,7 @@ import { LocationModule } from './LocationModule';
 import { LocationService } from '../Service/LocationService';
 import { OsrmModule } from './OsrmModule';
 import { OsrmService } from '../Service/osrmService';
+import { MelhorEnvioModule } from './MelhorEnvioModule';
 
 
 @Module({

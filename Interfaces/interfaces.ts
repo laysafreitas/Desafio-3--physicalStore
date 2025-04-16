@@ -15,3 +15,15 @@ export interface location {
     lat: number;
     lon: number;
 }
+
+export interface FreightPayload{
+    from: string;
+    to: string;
+    services: string;
+}
+
+export interface IFrete {
+    prazo: string; 
+    preco: string; 
+    descricao: string; 
+  }

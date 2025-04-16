@@ -7,8 +7,8 @@ import { ViaCepService } from '../Service/GetCep-service';
 @Controller('lojas')
 export class LojaController {
     constructor(private readonly lojaService: LojaService,
-        private readonly locationService: LocationService,
-        private readonly viaCepService: ViaCepService
+        private readonly viaCepService: ViaCepService,
+        private readonly LocationService: LocationService
     ) {}
 
     @Post()
@@ -30,28 +30,6 @@ export class LojaController {
         } catch (error: any) {
             throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-}
-@Get(':cep') 
-async getNearbyStoresByCep(@Param('cep') cep: string): Promise<any[]> {
-    if (!cep) {
-        throw new HttpException('CEP é obrigatório!', HttpStatus.BAD_REQUEST);
-    }
-
-
-    const coordinates = await this.viaCepService.getViaCep(cep);
-
-    if (!coordinates) {
-        throw new HttpException('CEP não encontrado ou inválido!', HttpStatus.BAD_REQUEST);
-    }
-
-    const { lat, lon } = coordinates;
-
-    return this.locationService.getStoresWithinRadius(lat,lon);
-}
-
-@Get('hello')
-async helloRota(): Promise<string>  {
-    return 'Olá! Tudo está funcionando.';
 }
 
 }

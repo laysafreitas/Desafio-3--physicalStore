@@ -11,5 +11,17 @@ export class LojaService {
     async createLoja(data: CreateLojaDto): Promise<ILoja> {
         const loja = new this.lojaModel(data);
         return await loja.save();
+
     }
+  
+    async salvarFrete(cep: string, freteData: any[]): Promise<ILoja> {
+        const loja = await this.lojaModel.findOne({ cep });
+    
+        if (!loja) {
+          throw new Error('Loja não encontrada.');
+        }
+    
+        loja.frete = freteData; 
+        return loja.save(); 
+      }
 }

@@ -1,4 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
+import { IFrete } from "../Interfaces/interfaces";
 
 export interface ILoja extends Document {
   name: string;
@@ -10,6 +11,7 @@ export interface ILoja extends Document {
   ddd:string;
   latitude: number;
   longitude: number;
+  frete?: IFrete[];
 }
 
 export const LojasSchema: Schema = new Schema({
@@ -21,7 +23,14 @@ export const LojasSchema: Schema = new Schema({
   estado:{type: String, require:true},
   ddd:{type: String, require:true},
   latitude: { type: Number, required: true },
-  longitude: { type: Number, required: true }
+  longitude: { type: Number, required: true },
+  frete: [
+    {
+      prazo: { type: String, required: true },
+      preco: { type: String, required: true },
+      descricao: { type: String, required: true },
+    },
+  ],
 });
 
 export default LojasSchema;
