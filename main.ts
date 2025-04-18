@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import  {AppModule}  from "./app"
 import { CustomLoggerService } from './logger/loggerService'
-
+import 'dotenv/config';
 
 async function bootstrap() {
   console.log('Iniciando servidor...');

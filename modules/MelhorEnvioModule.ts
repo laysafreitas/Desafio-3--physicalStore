@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { calculateFreteWithMelhorEnvio } from '../Service/calculateFreteWithMelhorEnvio';
+import { MelhorEnvioApi } from '../Service/calculateFreteWithMelhorEnvio';
 import { LocationService } from '../Service/LocationService';
 import { OsrmService } from '../Service/osrmService';
 import { ViaCepService } from '../Service/GetCep-service';
@@ -11,6 +11,7 @@ import { LojasModule } from './lojasModule';
 import { LojaService } from '../Service/lojasService';
 
 
+
 @Module({
   imports: [
     LojasModule,
@@ -18,7 +19,7 @@ import { LojaService } from '../Service/lojasService';
     MongooseModule.forFeature([{ name: 'Loja', schema: LojasSchema }]), 
   ],
   controllers: [FreteController], 
-  providers: [calculateFreteWithMelhorEnvio,LocationService,OsrmService,ViaCepService,LojaService],
-  exports: [calculateFreteWithMelhorEnvio,LocationService], 
+  providers: [MelhorEnvioApi,LocationService,OsrmService,ViaCepService,LojaService],
+  exports: [MelhorEnvioApi,LocationService], 
 })
 export class MelhorEnvioModule {}

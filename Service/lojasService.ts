@@ -13,15 +13,13 @@ export class LojaService {
         return await loja.save();
 
     }
-  
-    async salvarFrete(cep: string, freteData: any[]): Promise<ILoja> {
-        const loja = await this.lojaModel.findOne({ cep });
-    
-        if (!loja) {
-          throw new Error('Loja não encontrada.');
-        }
-    
-        loja.frete = freteData; 
-        return loja.save(); 
-      }
+    async getAllStores(): Promise<ILoja[]> {
+        return await this.lojaModel.find().exec(); 
+    }
+    async getStoreById(id: string): Promise<ILoja | null> {
+        return await this.lojaModel.findById(id).exec();
+    }
+    async getStoresByState(state: string): Promise<ILoja[]> {
+        return await this.lojaModel.find({ estado: state }).exec();
+    }
 }

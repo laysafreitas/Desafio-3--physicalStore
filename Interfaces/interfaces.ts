@@ -22,8 +22,3 @@ export interface FreightPayload{
     services: string;
 }
 
-export interface IFrete {
-    prazo: string; 
-    preco: string; 
-    descricao: string; 
-  }

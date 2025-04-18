@@ -1,5 +1,10 @@
 import mongoose, { Schema, Document } from "mongoose";
-import { IFrete } from "../Interfaces/interfaces";
+
+
+export enum StoreType {
+  PDV = 'PDV',
+  LOJA = 'LOJA',
+}
 
 export interface ILoja extends Document {
   name: string;
@@ -11,7 +16,10 @@ export interface ILoja extends Document {
   ddd:string;
   latitude: number;
   longitude: number;
-  frete?: IFrete[];
+  preparationTime?: number;
+  telephoneNumber?: string;
+  emailAddress?: string;
+  type: StoreType; 
 }
 
 export const LojasSchema: Schema = new Schema({
@@ -24,13 +32,11 @@ export const LojasSchema: Schema = new Schema({
   ddd:{type: String, require:true},
   latitude: { type: Number, required: true },
   longitude: { type: Number, required: true },
-  frete: [
-    {
-      prazo: { type: String, required: true },
-      preco: { type: String, required: true },
-      descricao: { type: String, required: true },
-    },
-  ],
+  preparationTime: { type: Number, default: 0 }, 
+  telephoneNumber: { type: String, default: '0000-0000' }, 
+  emailAddress: { type: String, default: 'email@mockado.com' }, 
+  type: { type: String, enum: ['PDV', 'LOJA'], required: true },
+    supportsDelivery: { type: Boolean, default: false },
 });
 
 export default LojasSchema;
