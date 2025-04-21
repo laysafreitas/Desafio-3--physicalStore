@@ -21,14 +21,14 @@ cd seu-repositorio
 # 3. Instale as dependências
 npm install
 
-- Para rodar o projeto em ambiente de desenvolvimento:
+# Para rodar o projeto em ambiente de desenvolvimento:
 
 npm start
 
-- Para rodar os testes:
+# Para rodar os testes:
 
 npm run test
-
+```
 # Modelo .env
 
 ```env
