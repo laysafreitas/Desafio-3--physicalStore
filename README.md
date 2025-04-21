@@ -1,6 +1,6 @@
-#Desafio 3 - PsycalStore
+# Desafio 3 - PsycalStore
 
-#Objetivos
+# Objetivos
 
 - Esse desafio é uma continuação e implementação de um Desafio feito anteriormente pela
   empresa compass, onde a API encontraria lojas fisicas com um CEP determinado;
@@ -8,3 +8,29 @@
   e rotas entre o endereço do usuario e as lojas cadastradas;
 - Nessa versão, apartir de um cep,de preferencia do cliente, ele calculará e retornará
 uma loja proxima em um raio de 50km, com frete calculado e os dias para ser entregue;
+
+# Instalações
+
+# 1. Clone o repositório
+git clone https://github.com/seu-usuario/seu-repositorio.git
+
+# 2. Acesse a pasta do projeto
+cd seu-repositorio
+
+# 3. Instale as dependências
+npm install
+
+- Para rodar o projeto em ambiente de desenvolvimento:
+
+npm start
+
+- Para rodar os testes:
+
+npm run test
+
+# Modelo .env
+
+PORT=3000
+DATABASE_URI=mongodb://localhost:27017/seu-banco
+JWT_SECRET=sua-chave-secreta
+
