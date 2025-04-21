@@ -70,4 +70,7 @@ git push origin minha-feature
 
 # 📝 Licença"
 
+Este projeto está licenciado sob a licença MIT.
+
+Você é livre para usar, modificar e distribuir este projeto, desde que preserve os créditos aos autores originais.
 
