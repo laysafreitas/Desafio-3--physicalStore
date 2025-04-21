@@ -11,6 +11,7 @@ uma loja proxima em um raio de 50km, com frete calculado e os dias para ser entr
 
 # Instalações
 
+```bash
 # 1. Clone o repositório
 git clone https://github.com/seu-usuario/seu-repositorio.git
 
