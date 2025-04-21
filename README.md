@@ -30,7 +30,7 @@ npm run test
 
 # Modelo .env
 
-PORT=3000
+```env
 DATABASE_URI=mongodb://localhost:27017/seu-banco
-JWT_SECRET=sua-chave-secreta
+TOKEN= token gerado pelo melhor envio
 
