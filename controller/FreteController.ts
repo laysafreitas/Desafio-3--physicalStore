@@ -84,7 +84,7 @@ export class FreteController {
           const formattedStores = nearbyStores.map((store) => ({
             storeID: store._id,
             storeName: store.name,
-            type: store.type || 'PDV', // PDV ou LOJA
+            type: store.type || 'PDV', 
             latitude: store.latitude.toString(),
             longitude: store.longitude.toString(),
             address1: store.logradouro,
@@ -100,19 +100,29 @@ export class FreteController {
             label: store.name,
         }));
 
-     
-        const limit = 1; 
-        const offset = 1; 
+        const melhorEnvioApi = new MelhorEnvioApi();
+        const deliveryOptions = await melhorEnvioApi.calcularFretePorCep(sanitizedCep);
+
+        const selectedDeliveryOption = deliveryOptions.length > 0 
+            ? deliveryOptions.sort((a: any, b: any) => a.distance - b.distance)[0] 
+            : null;
+
+            console.log('Selected Delivery Option:', selectedDeliveryOption);
+
+        const limit = 1;
+        const offset = 1;
         const total = nearbyStores.length;
 
+        
         return {
             stores: formattedStores,
             pins,
+            deliveryOption: selectedDeliveryOption, 
             limit,
             offset,
             total,
         };
-          return { stores: formattedStores };
+
         } catch (error: any) {
             this.logger.error(`Erro ao buscar lojas: ${error.message}`);
             throw new HttpException(

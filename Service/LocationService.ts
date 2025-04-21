@@ -38,7 +38,7 @@ export class LocationService {
                     { lat, lon },
                     { lat: store.latitude, lon: store.longitude }
                 );
-                return { ...store.toJSON(), distance };
+                return { ...store, distance };
             })
         );
         const storesWithinRadius = storesWithDistance

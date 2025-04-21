@@ -19,7 +19,8 @@ export interface ILoja extends Document {
   preparationTime?: number;
   telephoneNumber?: string;
   emailAddress?: string;
-  type: StoreType; 
+  type: StoreType;
+  supportsDelivery: boolean;
 }
 
 export const LojasSchema: Schema = new Schema({
@@ -36,7 +37,7 @@ export const LojasSchema: Schema = new Schema({
   telephoneNumber: { type: String, default: '0000-0000' }, 
   emailAddress: { type: String, default: 'email@mockado.com' }, 
   type: { type: String, enum: ['PDV', 'LOJA'], required: true },
-    supportsDelivery: { type: Boolean, default: false },
+supportsDelivery: { type: Boolean, default: false },
 });
 
 export default LojasSchema;

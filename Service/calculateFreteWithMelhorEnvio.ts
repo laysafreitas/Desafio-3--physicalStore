@@ -74,12 +74,11 @@ export class MelhorEnvioApi {
 
             this.logger.log(`Resposta completa da API Melhor Envio: ${JSON.stringify(response.data)}`);
 
-
             if (typeof response.data === 'string' && response.data.includes('<html>')) {
-              this.logger.error('Recebeu HTML ao invés de JSON na resposta da API Melhor Envio.');
-              throw new HttpException('Resposta inesperada da API Melhor Envio. Possível problema de autenticação ou configuração.', HttpStatus.INTERNAL_SERVER_ERROR);
-          }
-          
+                this.logger.error('Recebeu HTML ao invés de JSON na resposta da API Melhor Envio.');
+                throw new HttpException('Resposta inesperada da API Melhor Envio. Possível problema de autenticação ou configuração.', HttpStatus.INTERNAL_SERVER_ERROR);
+              }
+              
           const resultado = Array.isArray(response.data)
     ? response.data.map((service: any) => ({
         prazo: service.delivery_time ? `${service.delivery_time} dias úteis` : 'Não informado',
@@ -98,9 +97,12 @@ export class MelhorEnvioApi {
             this.logger.log(`Resultado obtido: ${JSON.stringify(resultado)}`);
             return resultado;
         } catch (error: any) {
-            this.logger.error(`Erro na chamada à API Melhor Envio: ${error.message}`);
             this.logger.error(`Detalhes: ${JSON.stringify(error.response?.data || error.response || error)}`);
-            throw new HttpException('Erro na chamada à API Melhor Envio.', HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new HttpException(
+                'Resposta inesperada da API Melhor Envio. Possível problema de autenticação ou configuração.',
+                HttpStatus.INTERNAL_SERVER_ERROR
+              );
+              
         }
     }
 

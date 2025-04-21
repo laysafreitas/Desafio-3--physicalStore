@@ -20,6 +20,6 @@ export class LojaService {
         return await this.lojaModel.findById(id).exec();
     }
     async getStoresByState(state: string): Promise<ILoja[]> {
-        return await this.lojaModel.find({ estado: state }).exec();
+        return await this.lojaModel.find({ estado: state }).lean();
     }
 }
