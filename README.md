@@ -34,4 +34,41 @@ npm run test
 ```env
 DATABASE_URI=mongodb://localhost:27017/seu-banco
 TOKEN= token gerado pelo melhor envio
+```
+# Tecnologias Usadas
+
+Node.js – Ambiente de execução JavaScript
+
+NestJS – Framework para aplicações Node escaláveis
+
+TypeScript – Superset do JavaScript com tipagem estática
+
+MongoDB – Banco de dados NoSQL orientado a documentos
+
+Mongoose – ODM para MongoDB
+
+Winston – Logger flexível para Node.js
+
+dotenv – Gerenciamento de variáveis de ambiente
+
+Jest – Framework de testes com cobertura integrada
+
+# Contribuição
+
+```bash
+# Crie uma nova branch:
+git checkout -b minha-feature
+
+# Faça suas alterações e dê commit:
+git commit -m 'feat: minha nova feature'
+
+# Envie sua branch para o repositório remoto:
+git push origin minha-feature
+
+# Abra um Pull Request
+ ```
+
+
+
+
 
