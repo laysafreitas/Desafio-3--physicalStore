@@ -9,7 +9,7 @@
 - Nessa versão, apartir de um cep,de preferencia do cliente, ele calculará e retornará
 uma loja proxima em um raio de 50km, com frete calculado e os dias para ser entregue;
 
-# Instalações
+# 🛠️ Instalações
 
 ```bash
 # 1. Clone o repositório
@@ -29,13 +29,13 @@ npm start
 
 npm run test
 ```
-# Modelo .env
+# ⚙️ Modelo .env
 
 ```env
 DATABASE_URI=mongodb://localhost:27017/seu-banco
 TOKEN= token gerado pelo melhor envio
 ```
-# Tecnologias Usadas
+# 🧰 Tecnologias Usadas
 
 Node.js – Ambiente de execução JavaScript
 
@@ -53,7 +53,7 @@ dotenv – Gerenciamento de variáveis de ambiente
 
 Jest – Framework de testes com cobertura integrada
 
-# Contribuição
+# 🤝 Contribuição
 
 ```bash
 # Crie uma nova branch:
@@ -68,7 +68,6 @@ git push origin minha-feature
 # Abra um Pull Request
  ```
 
-
-
+# 📝 Licença"
 
 
