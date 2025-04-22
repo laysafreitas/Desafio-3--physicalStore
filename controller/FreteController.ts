@@ -58,29 +58,37 @@ export class FreteController {
     }
     
     @Get('storeByCep/:cep')
-    async storeByCep(@Param('cep') cep: string): Promise<any> {
-      this.logger.log(`Buscando lojas próximas ao CEP: ${cep}`);
-
-      try {
-          const sanitizedCep = cep.replace(/\D/g, '');
-          if (!/^\d{8}$/.test(sanitizedCep)) {
-              throw new HttpException('O CEP deve conter exatamente 8 dígitos!', HttpStatus.BAD_REQUEST);
-          }
-
-          const coordinates = await this.ViaCepService.getViaCep(sanitizedCep);
-          if (!coordinates) {
-              throw new HttpException('Não foi possível encontrar coordenadas para o CEP informado.', HttpStatus.NOT_FOUND);
-          }
-
-          const { lat, lon } = coordinates;
-
-          const radiusInKm = 50;
-          const nearbyStores = await this.LocationService.getStoresWithinRadius(lat, lon, radiusInKm);
-
-          if (!nearbyStores || nearbyStores.length === 0) {
-              throw new HttpException('Nenhuma loja encontrada próxima ao CEP informado!', HttpStatus.NOT_FOUND);
-          }
-
+    async storeAndFreight(@Param('cep') cep: string): Promise<any> {
+        this.logger.log(`Buscando loja próxima ao CEP ${cep} e calculando frete.`);
+    
+        type DeliveryOption = {
+            prazo: string;
+            price: number;
+            description: string;
+        };
+        try {
+           
+            const sanitizedCep = cep.replace(/\D/g, '');
+            if (!/^\d{8}$/.test(sanitizedCep)) {
+                throw new HttpException('O CEP deve conter exatamente 8 dígitos.', HttpStatus.BAD_REQUEST);
+            }
+    
+           
+            const coordinates = await this.ViaCepService.getViaCep(sanitizedCep);
+            if (!coordinates || !coordinates.lat || !coordinates.lon) {
+                this.logger.warn(`Coordenadas não encontradas para o CEP ${sanitizedCep}.`);
+                throw new HttpException('Não foi possível obter coordenadas para o CEP informado.', HttpStatus.NOT_FOUND);
+            }
+    
+            const { lat, lon } = coordinates;
+    
+            const radiusInKm = 50;
+            const nearbyStores = await this.LocationService.getStoresWithinRadius(lat, lon, radiusInKm);
+            if (!nearbyStores || nearbyStores.length === 0) {
+                this.logger.warn(`Nenhuma loja encontrada dentro do raio de ${radiusInKm} km.`);
+                throw new HttpException('Nenhuma loja encontrada dentro do raio especificado.', HttpStatus.NOT_FOUND);
+            }
+           
           const formattedStores = nearbyStores.map((store) => ({
             storeID: store._id,
             storeName: store.name,
@@ -93,13 +101,19 @@ export class FreteController {
             state: store.estado,
             postalCode: store.cep,
         }));
-
-        const pins = nearbyStores.map((store) => ({
+          
+        const pins = nearbyStores.map(store => ({
             latitude: store.latitude,
             longitude: store.longitude,
             label: store.name,
         }));
 
+
+        const limit = 1;
+        const offset = 1;
+        const total = nearbyStores.length;
+       
+             
         const melhorEnvioApi = new MelhorEnvioApi();
         const deliveryOptions = await melhorEnvioApi.calcularFretePorCep(sanitizedCep);
 
@@ -107,24 +121,21 @@ export class FreteController {
             ? deliveryOptions.sort((a: any, b: any) => a.distance - b.distance)[0] 
             : null;
 
-            console.log('Selected Delivery Option:', selectedDeliveryOption);
+        +
+        + console.log('Selected Delivery Option:', selectedDeliveryOption);
 
-        const limit = 1;
-        const offset = 1;
-        const total = nearbyStores.length;
-
-        
         return {
             stores: formattedStores,
             pins,
-            deliveryOption: selectedDeliveryOption, 
+           deliveryOption: selectedDeliveryOption, 
             limit,
             offset,
             total,
         };
 
+        return { stores: formattedStores };
         } catch (error: any) {
-            this.logger.error(`Erro ao buscar lojas: ${error.message}`);
+            this.logger.error(`Erro ao buscar loja e calcular frete: ${error.message}`);
             throw new HttpException(
                 error.message || 'Erro ao processar a solicitação.',
                 HttpStatus.INTERNAL_SERVER_ERROR

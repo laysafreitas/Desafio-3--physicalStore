@@ -38,8 +38,9 @@ export class LocationService {
                     { lat, lon },
                     { lat: store.latitude, lon: store.longitude }
                 );
-                return { ...store, distance };
+                return { ...store.toJSON(), distance };
             })
+
         );
         const storesWithinRadius = storesWithDistance
         .filter((store) => store.distance <= radius * 1000) 
